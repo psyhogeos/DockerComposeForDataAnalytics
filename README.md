@@ -11,6 +11,4 @@ Access Jupyter Notebooks by navigating to ```localhost:8888``` in your browser. 
 
 Access RStudio by navigating to ```localhost:8787``` in your browser. From there, enter the password located in the ```rstudio.env``` file in the **config** directory ('jupyter1' by default, which can be changed). The default username to be entered is 'rstudio'.
 
-Any scripts created or modified in the **work** directory in the Jupyter Notebooks container will be saved in the **data** directory within this project. Similarly, any changes made in the **rstudio** directory in the RStudio container are saved in the same location. (For more information on managing data in Docker with volumes, see [here](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose)).
-
-
+Any scripts created or modified in the **work** directory in the Jupyter Notebooks container will be saved in the **data** directory within this project. Similarly, any changes made in the **rstudio** directory in the RStudio container are saved in the same location. Any packages installed (e.g., ggplot and its dependencies) will be stored in a directory called **r_pkgs** on the local filesystem. This way, the packages do not need to be re-installed each time the container is spun up and the script is run. (For more information on managing data in Docker with volumes, see [here](https://docs.docker.com/storage/volumes/#use-a-volume-with-docker-compose)).
