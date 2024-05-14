@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  jupyter:
+    container_name: "jupyter_notebook"
+    image: "jupyter/datascience-notebook:ubuntu-22.04"
+    restart: "always"
+    env_file:
+      - ./config/jupyter.env
+    volumes:
+      - ./data:/home/jovyan/work 
+    ports:
+      - 8888:8888
+
+  rstudio:
+    container_name: "rstudio"
+    image: "rocker/rstudio:4.4"
+    restart: "always"
+    env_file:
+      - ./config/rstudio.env
+    volumes:
+      - ./data:/home/rstudio
+      - ./data/r_pkgs:/usr/local/lib/R/site-library
+    ports:
+      - 8787:8787
